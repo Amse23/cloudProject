@@ -1,0 +1,77 @@
+{
+	"name": "ds_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "PartitionKey",
+				"type": "varchar"
+			},
+			{
+				"name": "RowKey",
+				"type": "varchar"
+			},
+			{
+				"name": "Timestamp",
+				"type": "varchar"
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "customerId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "dob",
+				"type": "varchar"
+			},
+			{
+				"name": "email",
+				"type": "varchar"
+			},
+			{
+				"name": "firstName",
+				"type": "varchar"
+			},
+			{
+				"name": "lastName",
+				"type": "varchar"
+			},
+			{
+				"name": "phone",
+				"type": "varchar"
+			},
+			{
+				"name": "ssn",
+				"type": "varchar"
+			},
+			{
+				"name": "state",
+				"type": "varchar"
+			},
+			{
+				"name": "street",
+				"type": "varchar"
+			},
+			{
+				"name": "zipCode",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MaskedData"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

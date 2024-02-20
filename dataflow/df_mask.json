@@ -1,0 +1,86 @@
+{
+	"name": "df_mask",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_sql",
+						"type": "DatasetReference"
+					},
+					"name": "Source"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_sql",
+						"type": "DatasetReference"
+					},
+					"name": "SinkMaskedColumns"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          PartitionKey as string,",
+				"          RowKey as string,",
+				"          Timestamp as string,",
+				"          City as string,",
+				"          customerId as integer,",
+				"          dob as string,",
+				"          email as string,",
+				"          firstName as string,",
+				"          lastName as string,",
+				"          phone as string,",
+				"          ssn as string,",
+				"          state as string,",
+				"          street as string,",
+				"          zipCode as decimal(18,0)",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> Source",
+				"Source derive(ssn = sha2(256,ssn),",
+				"          email = sha2(256,email)) ~> derivedColumn1",
+				"derivedColumn1 alterRow(updateIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     input(",
+				"          PartitionKey as string,",
+				"          RowKey as string,",
+				"          Timestamp as string,",
+				"          City as string,",
+				"          customerId as integer,",
+				"          dob as string,",
+				"          email as string,",
+				"          firstName as string,",
+				"          lastName as string,",
+				"          phone as string,",
+				"          ssn as string,",
+				"          state as string,",
+				"          street as string,",
+				"          zipCode as decimal(18,0)",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['PartitionKey'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> SinkMaskedColumns"
+			]
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "adfwithram",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cb1bddac-e5e0-4e7c-993f-b83578f5f36f",
+		"tenantId": "3d3309e9-342a-4198-8e2d-01a542e3ff21"
+	}
+}
