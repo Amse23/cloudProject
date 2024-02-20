@@ -15,9 +15,12 @@ The following steps best describe the progression:
 3. PII Detection and Masking Solution
 
 # Azure Infra with Terraform
-Resources created with Terraform in order are: Azure Resource Group, Azure Storage Account, Azure Table, Azure SQL server, and Azure Databse
+Resources created with Terraform in order are: Azure Resource Group, Azure Storage Account, Azure Table, Azure SQL server, and Azure Database.
 
-In the next step, files were pushed to Github by Git commands.
+Terraform init was run for initializing the Terraform working directory. Following that Terraform Plan was run to provide safety by previewing changes and catching potential problems before they happen, help to visualize the impact of the changes you intend to make, and generate a plan and prompt for your approval before modifying the infrastructure.
+And the last step was Terraform apply to execute the actions provided by Terraform plan.
+
+In the next step, files were pushed to Github by Git commands - Git add ., Git status, Git commit, and Git push.
 
 # Python scrpit
 
