@@ -1,9 +1,9 @@
 {
-	"name": "pl_copy_tbl_to_sql",
+	"name": "pl_copy_tbl_to_sqldb",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy from Table to SQL",
+				"name": "non-relational to relational",
 				"description": "This pipeline convert non-relational data to relational to prepare data for the masking",
 				"type": "Copy",
 				"dependsOn": [],
