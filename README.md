@@ -1,4 +1,4 @@
-# cloudProject
+# CloudProject
 
 # azure-infra-assignment-zlatan
 
